@@ -7,7 +7,7 @@
   tasks:
     - name: Export Controller Projects
       ansible.controller.export:
-        projects: 'all'
+        projects: "all"
         controller_host: "{{controller_host1}}"
         controller_oauthtoken: "{{controller_token1}}"
         validate_certs: False
