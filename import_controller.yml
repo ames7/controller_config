@@ -34,3 +34,18 @@
         controller_host: "{{controller_host2}}"
         controller_oauthtoken: "{{controller_token2}}"
         validate_certs: False
+
+    - name: Export Controller Templates
+      ansible.controller.export:
+        templates: 'Linux *'
+        controller_host: "{{controller_host1}}"
+        controller_oauthtoken: "{{controller_token1}}"
+        validate_certs: False
+      register: controller_templates
+
+    - name: Import Controller Templates
+      ansible.controller.import:
+        assets: "{{ controller_templates.assets }}"
+        controller_host: "{{controller_host2}}"
+        controller_oauthtoken: "{{controller_token2}}"
+        validate_certs: False
