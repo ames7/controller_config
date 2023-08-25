@@ -5,17 +5,17 @@
   gather_facts: false
 
   tasks:
-    - name: Export Controller Projects
+    - name: Export Controller Inventory
       ansible.controller.export:
-        projects: ["all"]
+        inventory: 'all'
         controller_host: "{{controller_host1}}"
         controller_oauthtoken: "{{controller_token1}}"
         validate_certs: False
-      register: controller_projects
+      register: controller_inventory
 
-    - name: Import Controller Projects
+    - name: Import Controller Inventory
       ansible.controller.import:
-        assets: "{{ controller_projects.assets }}"
+        assets: "{{ controller_inventory.assets }}"
         controller_host: "{{controller_host2}}"
         controller_oauthtoken: "{{controller_token2}}"
         validate_certs: False
