@@ -7,7 +7,7 @@
   tasks:
     - name: Export Controller Inventory
       ansible.controller.export:
-        inventory: 'all'
+        inventory: 'AWS Hosts'
         controller_host: "{{controller_host1}}"
         controller_oauthtoken: "{{controller_token1}}"
         validate_certs: False
