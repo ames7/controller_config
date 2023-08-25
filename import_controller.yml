@@ -20,7 +20,7 @@
         controller_oauthtoken: "{{controller_token2}}"
         validate_certs: False
 
-    - name: Export Controller Inventory
+    - name: Export Controller Inventory Sources
       ansible.controller.export:
         inventory_sources: 'AWS'
         controller_host: "{{controller_host1}}"
@@ -28,7 +28,7 @@
         validate_certs: False
       register: controller_inventory_sources
 
-    - name: Import Controller Inventory
+    - name: Import Controller Inventory Sources
       ansible.controller.import:
         assets: "{{ controller_inventory_sources.assets }}"
         controller_host: "{{controller_host2}}"
