@@ -3,6 +3,7 @@
   hosts: localhost
   connection: local 
   gather_facts: False
+  ignore_errors: True
 
   tasks:
     - name: Export all assets
