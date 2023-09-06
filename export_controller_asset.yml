@@ -1,0 +1,25 @@
+---
+- name: Export Controller
+  hosts: localhost
+  connection: local 
+  gather_facts: false
+  collections:
+    - ansible.controller
+  environment:
+     CONTROLLER_HOST: ''
+     CONTROLLER_TOKEN: ''
+     CONTROLLER_VERIFY_SSL: False
+
+  tasks:
+    - name: Export all assets
+      ansible.controller.export:
+        all: True
+      register: export_results
+
+    - debug:
+        var: export_results
+
+    - name: Export assets to a file
+      copy:
+        content: "{{ export_results | to_nice_yaml( width=50, explicit_start=True, explicit_end=True) }}"
+        dest: controller_assets.yaml
