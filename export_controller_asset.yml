@@ -6,8 +6,8 @@
   collections:
     - ansible.controller
   environment:
-     CONTROLLER_HOST: ''
-     CONTROLLER_TOKEN: ''
+     CONTROLLER_HOST: "{controller_host1}"
+     CONTROLLER_TOKEN: "{controller_token1}"
      CONTROLLER_VERIFY_SSL: False
 
   tasks:
