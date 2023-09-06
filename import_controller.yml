@@ -7,7 +7,7 @@
   tasks:
     - name: Export Controller Inventory
       ansible.controller.export:
-        inventory: 'AWS Hosts'
+        inventory: ['All']
         controller_host: "{{controller_host1}}"
         controller_oauthtoken: "{{controller_token1}}"
         validate_certs: False
@@ -22,7 +22,7 @@
 
     - name: Export Controller Inventory Sources
       ansible.controller.export:
-        inventory_sources: 'AWS'
+        inventory_sources: ['All']
         controller_host: "{{controller_host1}}"
         controller_oauthtoken: "{{controller_token1}}"
         validate_certs: False
@@ -37,7 +37,7 @@
 
     - name: Export Controller Templates
       ansible.controller.export:
-        templates: 'Linux *'
+        templates: ['All']
         controller_host: "{{controller_host1}}"
         controller_oauthtoken: "{{controller_token1}}"
         validate_certs: False
