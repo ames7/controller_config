@@ -43,7 +43,7 @@
         controller_host: "{{controller_host1}}"
         controller_oauthtoken: "{{controller_token1}}"
         validate_certs: False
-      register: controller_templates
+      register: controller_job_templates
       tags: controller_job_templates
 
     - name: Import Controller Job Templates
