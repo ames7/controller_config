@@ -58,9 +58,9 @@
         validate_certs: False
       register: controller_projects
 
-     - name: Import Controller Projects
-       ansible.controller.import:
-         assets: "{{ controller_projects.assets }}"
-         controller_host: "{{controller_host2}}"
-         controller_oauthtoken: "{{controller_token2}}"
-         validate_certs: False
+    - name: Import Controller Projects
+      ansible.controller.import:
+        assets: "{{ controller_projects.assets }}"
+        controller_host: "{{controller_host2}}"
+        controller_oauthtoken: "{{controller_token2}}"
+        validate_certs: False
