@@ -6,7 +6,7 @@
 
   tasks:
     - name: Export Controller Inventory
-      ansible.controller.export:
+      awx.awx.export:
         inventory: ['all']
         controller_host: "{{controller_host1}}"
         controller_oauthtoken: "{{controller_token1}}"
@@ -14,14 +14,14 @@
       register: controller_inventory
 
     - name: Import Controller Inventory
-      ansible.controller.import:
+      awx.awx.import:
         assets: "{{ controller_inventory.assets }}"
         controller_host: "{{controller_host2}}"
         controller_oauthtoken: "{{controller_token2}}"
         validate_certs: False
 
     - name: Export Controller Inventory Sources
-      ansible.controller.export:
+      awx.awx.export:
         inventory_sources: ['all']
         controller_host: "{{controller_host1}}"
         controller_oauthtoken: "{{controller_token1}}"
@@ -29,14 +29,14 @@
       register: controller_inventory_sources
 
     - name: Import Controller Inventory Sources
-      ansible.controller.import:
+      awx.awx.import:
         assets: "{{ controller_inventory_sources.assets }}"
         controller_host: "{{controller_host2}}"
         controller_oauthtoken: "{{controller_token2}}"
         validate_certs: False
 
     - name: Export Controller Job Templates
-      ansible.controller.export:
+      awx.awx.export:
         job_templates: ['all']
         controller_host: "{{controller_host1}}"
         controller_oauthtoken: "{{controller_token1}}"
@@ -44,14 +44,14 @@
       register: controller_job_templates
 
     - name: Import Controller Job Templates
-      ansible.controller.import:
+      awx.awx.import:
         assets: "{{ controller_job_templates.assets }}"
         controller_host: "{{controller_host2}}"
         controller_oauthtoken: "{{controller_token2}}"
         validate_certs: False
 
     - name: Export Controller Notification Templates
-      ansible.controller.export:
+      awx.awx.export:
         notification_templates: ['all']
         controller_host: "{{controller_host1}}"
         controller_oauthtoken: "{{controller_token1}}"
@@ -59,14 +59,14 @@
       register: controller_notification_templates
    
     - name: Import Controller Notification Templates
-      ansible.controller.import:
+      awx.awx.import:
         assets: "{{ controller_notification_templates.assets }}"
         controller_host: "{{controller_host2}}"
         controller_oauthtoken: "{{controller_token2}}"
         validate_certs: False
     
     - name: Export Controller Workflow Job Templates
-      ansible.controller.export:
+      awx.awx.export:
         workflow_job_templates: ['all']
         controller_host: "{{controller_host1}}"
         controller_oauthtoken: "{{controller_token1}}"
@@ -74,14 +74,14 @@
       register: controller_workflow_job_templates
    
     - name: Import Controller Workflow Job Templates
-      ansible.controller.import:
+      awx.awx.import:
         assets: "{{ controller_workflow_job_templates.assets }}"
         controller_host: "{{controller_host2}}"
         controller_oauthtoken: "{{controller_token2}}"
         validate_certs: False
 
     - name: Export Controller Projects
-      ansible.controller.export:
+      awx.awx.export:
         projects: ['all']
         controller_host: "{{controller_host1}}"
         controller_oauthtoken: "{{controller_token1}}"
@@ -89,7 +89,7 @@
       register: controller_projects
 
     - name: Import Controller Projects
-      ansible.controller.import:
+      awx.awx.import:
         assets: "{{ controller_projects.assets }}"
         controller_host: "{{controller_host2}}"
         controller_oauthtoken: "{{controller_token2}}"
