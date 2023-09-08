@@ -5,6 +5,21 @@
   gather_facts: false
 
   tasks:
+    - name: Export Controller Organizations
+      awx.awx.export:
+        organizations: ['all']
+        controller_host: "{{controller_host1}}"
+        controller_oauthtoken: "{{controller_token1}}"
+        validate_certs: False
+      register: controller_organizations
+
+    - name: Import Controller Organizations
+      awx.awx.import:
+        assets: "{{ controller_organizations.assets }}"
+        controller_host: "{{controller_host2}}"
+        controller_oauthtoken: "{{controller_token2}}"
+        validate_certs: False
+
     - name: Export Controller Inventory
       awx.awx.export:
         inventory: ['all']
