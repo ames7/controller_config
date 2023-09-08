@@ -1,0 +1,96 @@
+---
+- name: Import Controller Configs
+  hosts: localhost
+  connection: local 
+  gather_facts: false
+
+  tasks:
+    - name: Export Controller Inventory
+      ansible.controller.export:
+        inventory: ['all']
+        controller_host: "{{controller_host1}}"
+        controller_oauthtoken: "{{controller_token1}}"
+        validate_certs: False
+      register: controller_inventory
+
+    - name: Import Controller Inventory
+      ansible.controller.import:
+        assets: "{{ controller_inventory.assets }}"
+        controller_host: "{{controller_host2}}"
+        controller_oauthtoken: "{{controller_token2}}"
+        validate_certs: False
+
+    - name: Export Controller Inventory Sources
+      ansible.controller.export:
+        inventory_sources: ['all']
+        controller_host: "{{controller_host1}}"
+        controller_oauthtoken: "{{controller_token1}}"
+        validate_certs: False
+      register: controller_inventory_sources
+
+    - name: Import Controller Inventory Sources
+      ansible.controller.import:
+        assets: "{{ controller_inventory_sources.assets }}"
+        controller_host: "{{controller_host2}}"
+        controller_oauthtoken: "{{controller_token2}}"
+        validate_certs: False
+
+    - name: Export Controller Job Templates
+      ansible.controller.export:
+        job_templates: ['all']
+        controller_host: "{{controller_host1}}"
+        controller_oauthtoken: "{{controller_token1}}"
+        validate_certs: False
+      register: controller_job_templates
+
+    - name: Import Controller Job Templates
+      ansible.controller.import:
+        assets: "{{ controller_job_templates.assets }}"
+        controller_host: "{{controller_host2}}"
+        controller_oauthtoken: "{{controller_token2}}"
+        validate_certs: False
+
+    - name: Export Controller Notification Templates
+      ansible.controller.export:
+        notification_templates: ['all']
+        controller_host: "{{controller_host1}}"
+        controller_oauthtoken: "{{controller_token1}}"
+        validate_certs: False
+      register: controller_notification_templates
+   
+    - name: Import Controller Notification Templates
+      ansible.controller.import:
+        assets: "{{ controller_notification_templates.assets }}"
+        controller_host: "{{controller_host2}}"
+        controller_oauthtoken: "{{controller_token2}}"
+        validate_certs: False
+    
+    - name: Export Controller Workflow Job Templates
+      ansible.controller.export:
+        workflow_job_templates: ['all']
+        controller_host: "{{controller_host1}}"
+        controller_oauthtoken: "{{controller_token1}}"
+        validate_certs: False
+      register: controller_workflow_job_templates
+   
+    - name: Import Controller Workflow Job Templates
+      ansible.controller.import:
+        assets: "{{ controller_workflow_job_templates.assets }}"
+        controller_host: "{{controller_host2}}"
+        controller_oauthtoken: "{{controller_token2}}"
+        validate_certs: False
+
+    - name: Export Controller Projects
+      ansible.controller.export:
+        projects: ['all']
+        controller_host: "{{controller_host1}}"
+        controller_oauthtoken: "{{controller_token1}}"
+        validate_certs: False
+      register: controller_projects
+
+    - name: Import Controller Projects
+      ansible.controller.import:
+        assets: "{{ controller_projects.assets }}"
+        controller_host: "{{controller_host2}}"
+        controller_oauthtoken: "{{controller_token2}}"
+        validate_certs: False
