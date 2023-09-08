@@ -12,7 +12,6 @@
         controller_oauthtoken: "{{controller_token1}}"
         validate_certs: False
       register: controller_inventory
-      tags: controller inventory
 
     - name: Import Controller Inventory
       ansible.controller.import:
