@@ -7,7 +7,7 @@
   tasks:
     - name: Export Controller Inventory
       ansible.controller.export:
-        inventory: ['All']
+        inventory: ['all']
         controller_host: "{{controller_host1}}"
         controller_oauthtoken: "{{controller_token1}}"
         validate_certs: False
@@ -22,7 +22,7 @@
 
     - name: Export Controller Inventory Sources
       ansible.controller.export:
-        inventory_sources: ['All']
+        inventory_sources: ['all']
         controller_host: "{{controller_host1}}"
         controller_oauthtoken: "{{controller_token1}}"
         validate_certs: False
@@ -37,7 +37,7 @@
 
     - name: Export Controller Job Templates
       ansible.controller.export:
-        job_templates: ['All']
+        job_templates: ['all']
         controller_host: "{{controller_host1}}"
         controller_oauthtoken: "{{controller_token1}}"
         validate_certs: False
@@ -52,7 +52,7 @@
 
     - name: Export Controller Notification Templates
       ansible.controller.export:
-        notification_templates: ['All']
+        notification_templates: ['all']
         controller_host: "{{controller_host1}}"
         controller_oauthtoken: "{{controller_token1}}"
         validate_certs: False
@@ -67,7 +67,7 @@
     
     - name: Export Controller Workflow Job Templates
       ansible.controller.export:
-        workflow_job_templates: ['All']
+        workflow_job_templates: ['all']
         controller_host: "{{controller_host1}}"
         controller_oauthtoken: "{{controller_token1}}"
         validate_certs: False
@@ -82,7 +82,7 @@
 
     - name: Export Controller Projects
       ansible.controller.export:
-        projects: ['All']
+        projects: ['all']
         controller_host: "{{controller_host1}}"
         controller_oauthtoken: "{{controller_token1}}"
         validate_certs: False
