@@ -5,6 +5,21 @@
   gather_facts: false
 
   tasks:
+    - name: Export Controller Notification Templates
+      awx.awx.export:
+        notification_templates: ['all']
+        controller_host: "{{controller_host1}}"
+        controller_oauthtoken: "{{controller_token1}}"
+        validate_certs: False
+      register: controller_notification_templates
+   
+    - name: Import Controller Notification Templates
+      awx.awx.import:
+        assets: "{{ controller_notification_templates.assets }}"
+        controller_host: "{{controller_host2}}"
+        controller_oauthtoken: "{{controller_token2}}"
+        validate_certs: False
+
     - name: Export Controller Execution Environments
       awx.awx.export:
         execution_environments: ['all']
@@ -106,21 +121,6 @@
     - name: Import Controller Job Templates
       awx.awx.import:
         assets: "{{ controller_job_templates.assets }}"
-        controller_host: "{{controller_host2}}"
-        controller_oauthtoken: "{{controller_token2}}"
-        validate_certs: False
-
-    - name: Export Controller Notification Templates
-      awx.awx.export:
-        notification_templates: ['all']
-        controller_host: "{{controller_host1}}"
-        controller_oauthtoken: "{{controller_token1}}"
-        validate_certs: False
-      register: controller_notification_templates
-   
-    - name: Import Controller Notification Templates
-      awx.awx.import:
-        assets: "{{ controller_notification_templates.assets }}"
         controller_host: "{{controller_host2}}"
         controller_oauthtoken: "{{controller_token2}}"
         validate_certs: False
