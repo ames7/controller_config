@@ -12,6 +12,7 @@
         controller_oauthtoken: "{{controller_token1}}"
         validate_certs: False
       register: controller_notification_templates
+      tags: Notification Templates
    
     - name: Import Controller Notification Templates
       awx.awx.import:
@@ -19,6 +20,7 @@
         controller_host: "{{controller_host2}}"
         controller_oauthtoken: "{{controller_token2}}"
         validate_certs: False
+        tags: Notification Templates
 
     - name: Export Controller Execution Environments
       awx.awx.export:
@@ -27,6 +29,7 @@
         controller_oauthtoken: "{{controller_token1}}"
         validate_certs: False
       register: controller_execution_environments
+      tags: Execution Environments
 
     - name: Import Controller Execution Environments
       awx.awx.import:
@@ -34,6 +37,7 @@
         controller_host: "{{controller_host2}}"
         controller_oauthtoken: "{{controller_token2}}"
         validate_certs: False
+        tags: Execution Environments
 
     - name: Export Controller Organizations
       awx.awx.export:
@@ -42,6 +46,7 @@
         controller_oauthtoken: "{{controller_token1}}"
         validate_certs: False
       register: controller_organizations
+      tags: Organizations
 
     - name: Import Controller Organizations
       awx.awx.import:
@@ -49,6 +54,7 @@
         controller_host: "{{controller_host2}}"
         controller_oauthtoken: "{{controller_token2}}"
         validate_certs: False
+        tags: Organizations
 
     - name: Export Controller Teams
       awx.awx.export:
@@ -57,6 +63,7 @@
         controller_oauthtoken: "{{controller_token1}}"
         validate_certs: False
       register: controller_teams
+      tags: Teams
    
     - name: Import Controller Teams
       awx.awx.import:
@@ -64,6 +71,7 @@
         controller_host: "{{controller_host2}}"
         controller_oauthtoken: "{{controller_token2}}"
         validate_certs: False
+        tags: Teams
 
     - name: Export Controller Users
       awx.awx.export:
@@ -72,6 +80,7 @@
         controller_oauthtoken: "{{controller_token1}}"
         validate_certs: False
       register: controller_users
+      tags: Users
    
     - name: Import Controller Users
       awx.awx.import:
@@ -79,6 +88,7 @@
         controller_host: "{{controller_host2}}"
         controller_oauthtoken: "{{controller_token2}}"
         validate_certs: False
+        tags: Users
 
     - name: Export Controller Credential Types
       awx.awx.export:
@@ -87,6 +97,7 @@
         controller_oauthtoken: "{{controller_token1}}"
         validate_certs: False
       register: controller_credential_types
+      tags: Credential Types
    
     - name: Import Controller Credential Types
       awx.awx.import:
@@ -94,6 +105,7 @@
         controller_host: "{{controller_host2}}"
         controller_oauthtoken: "{{controller_token2}}"
         validate_certs: False
+        tags: Credential Types
 
     - name: Export Controller Credentials
       awx.awx.export:
@@ -102,6 +114,7 @@
         controller_oauthtoken: "{{controller_token1}}"
         validate_certs: False
       register: controller_credentials
+      tags: Credentials
 
     - name: Import Controller Credentials
       awx.awx.import:
@@ -109,6 +122,7 @@
         controller_host: "{{controller_host2}}"
         controller_oauthtoken: "{{controller_token2}}"
         validate_certs: False
+        tags: Credentials
 
     - name: Export Controller Projects
       awx.awx.export:
@@ -117,6 +131,7 @@
         controller_oauthtoken: "{{controller_token1}}"
         validate_certs: False
       register: controller_projects
+      tags: Projects
 
     - name: Import Controller Projects
       awx.awx.import:
@@ -124,6 +139,7 @@
         controller_host: "{{controller_host2}}"
         controller_oauthtoken: "{{controller_token2}}"
         validate_certs: False
+        tags: Projects
 
     - name: Export Controller Inventory
       awx.awx.export:
@@ -132,6 +148,7 @@
         controller_oauthtoken: "{{controller_token1}}"
         validate_certs: False
       register: controller_inventory
+      tags: Inventory
 
     - name: Import Controller Inventory
       awx.awx.import:
@@ -139,6 +156,7 @@
         controller_host: "{{controller_host2}}"
         controller_oauthtoken: "{{controller_token2}}"
         validate_certs: False
+        tags: Inventory
 
     - name: Export Controller Inventory Sources
       awx.awx.export:
@@ -147,6 +165,7 @@
         controller_oauthtoken: "{{controller_token1}}"
         validate_certs: False
       register: controller_inventory_sources
+      tags: Inventory Sources
 
     - name: Import Controller Inventory Sources
       awx.awx.import:
@@ -154,6 +173,7 @@
         controller_host: "{{controller_host2}}"
         controller_oauthtoken: "{{controller_token2}}"
         validate_certs: False
+        tags: Inventory Sources
 
     - name: Export Controller Job Templates
       awx.awx.export:
@@ -162,6 +182,7 @@
         controller_oauthtoken: "{{controller_token1}}"
         validate_certs: False
       register: controller_job_templates
+      tags: Job Templates
 
     - name: Import Controller Job Templates
       awx.awx.import:
@@ -169,6 +190,7 @@
         controller_host: "{{controller_host2}}"
         controller_oauthtoken: "{{controller_token2}}"
         validate_certs: False
+        tags: Job Templates
     
     - name: Export Controller Workflow Job Templates
       awx.awx.export:
@@ -177,6 +199,7 @@
         controller_oauthtoken: "{{controller_token1}}"
         validate_certs: False
       register: controller_workflow_job_templates
+      tags: Workflow Job Templates
    
     - name: Import Controller Workflow Job Templates
       awx.awx.import:
@@ -184,3 +207,4 @@
         controller_host: "{{controller_host2}}"
         controller_oauthtoken: "{{controller_token2}}"
         validate_certs: False
+        tags: Workflow Job Templates
