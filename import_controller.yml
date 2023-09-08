@@ -5,6 +5,36 @@
   gather_facts: false
 
   tasks:
+    - name: Export Controller Teams
+      awx.awx.export:
+        teams: ['all']
+        controller_host: "{{controller_host1}}"
+        controller_oauthtoken: "{{controller_token1}}"
+        validate_certs: False
+      register: controller_teams
+   
+    - name: Import Controller Teams
+      awx.awx.import:
+        assets: "{{ controller_teams.assets }}"
+        controller_host: "{{controller_host2}}"
+        controller_oauthtoken: "{{controller_token2}}"
+        validate_certs: False
+
+    - name: Export Controller Users
+      awx.awx.export:
+        users: ['all']
+        controller_host: "{{controller_host1}}"
+        controller_oauthtoken: "{{controller_token1}}"
+        validate_certs: False
+      register: controller_users
+   
+    - name: Import Controller Users
+      awx.awx.import:
+        assets: "{{ controller_users.assets }}"
+        controller_host: "{{controller_host2}}"
+        controller_oauthtoken: "{{controller_token2}}"
+        validate_certs: False
+
     - name: Export Controller Credential Types
       awx.awx.export:
         credential_types: ['all']
