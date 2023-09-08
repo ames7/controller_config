@@ -5,6 +5,21 @@
   gather_facts: false
 
   tasks:
+    - name: Export Controller Credential Types
+      awx.awx.export:
+        credential_types: ['all']
+        controller_host: "{{controller_host1}}"
+        controller_oauthtoken: "{{controller_token1}}"
+        validate_certs: False
+      register: controller_credential_types
+   
+    - name: Import Controller Credential Types
+      awx.awx.import:
+        assets: "{{ controller_credential_types.assets }}"
+        controller_host: "{{controller_host2}}"
+        controller_oauthtoken: "{{controller_token2}}"
+        validate_certs: False
+
     - name: Export Controller Notification Templates
       awx.awx.export:
         notification_templates: ['all']
