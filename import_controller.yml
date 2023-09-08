@@ -12,7 +12,7 @@
         controller_oauthtoken: "{{controller_token1}}"
         validate_certs: False
       register: controller_inventory
-      tags: controller_inventory
+      tags: controller inventory
 
     - name: Import Controller Inventory
       ansible.controller.import:
@@ -28,7 +28,7 @@
         controller_oauthtoken: "{{controller_token1}}"
         validate_certs: False
       register: controller_inventory_sources
-      tags: controller_inventory_sources
+      tags: controller inventory sources
 
     - name: Import Controller Inventory Sources
       ansible.controller.import:
@@ -44,7 +44,7 @@
         controller_oauthtoken: "{{controller_token1}}"
         validate_certs: False
       register: controller_job_templates
-      tags: controller_job_templates
+      tags: controller job templates
 
     - name: Import Controller Job Templates
       ansible.controller.import:
@@ -60,7 +60,7 @@
         controller_oauthtoken: "{{controller_token1}}"
         validate_certs: False
       register: controller_notification_templates
-      tags: controller_notification_templates
+      tags: controller notification templates
    
     - name: Import Controller Notification Templates
       ansible.controller.import:
@@ -76,7 +76,7 @@
         controller_oauthtoken: "{{controller_token1}}"
         validate_certs: False
       register: controller_workflow_job_templates
-      tags: controller_workflow_job_templates
+      tags: controller workflow job templates
    
     - name: Import Controller Workflow Job Templates
       ansible.controller.import:
@@ -92,7 +92,7 @@
         controller_oauthtoken: "{{controller_token1}}"
         validate_certs: False
       register: controller_projects
-      tags: controller_projects
+      tags: controller projects
 
     - name: Import Controller Projects
       ansible.controller.import:
