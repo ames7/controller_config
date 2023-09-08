@@ -5,6 +5,36 @@
   gather_facts: false
 
   tasks:
+    - name: Export Controller Credentials
+      awx.awx.export:
+        credentials: ['all']
+        controller_host: "{{controller_host1}}"
+        controller_oauthtoken: "{{controller_token1}}"
+        validate_certs: False
+      register: controller_credentials
+
+    - name: Import Controller Credentials
+      awx.awx.import:
+        assets: "{{ controller_credentials.assets }}"
+        controller_host: "{{controller_host2}}"
+        controller_oauthtoken: "{{controller_token2}}"
+        validate_certs: False
+
+    - name: Export Controller Projects
+      awx.awx.export:
+        projects: ['all']
+        controller_host: "{{controller_host1}}"
+        controller_oauthtoken: "{{controller_token1}}"
+        validate_certs: False
+      register: controller_projects
+
+    - name: Import Controller Projects
+      awx.awx.import:
+        assets: "{{ controller_projects.assets }}"
+        controller_host: "{{controller_host2}}"
+        controller_oauthtoken: "{{controller_token2}}"
+        validate_certs: False
+
     - name: Export Controller Organizations
       awx.awx.export:
         organizations: ['all']
