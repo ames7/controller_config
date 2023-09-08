@@ -5,6 +5,36 @@
   gather_facts: false
 
   tasks:
+    - name: Export Controller Notification Templates
+      awx.awx.export:
+        notification_templates: ['all']
+        controller_host: "{{controller_host1}}"
+        controller_oauthtoken: "{{controller_token1}}"
+        validate_certs: False
+      register: controller_notification_templates
+   
+    - name: Import Controller Notification Templates
+      awx.awx.import:
+        assets: "{{ controller_notification_templates.assets }}"
+        controller_host: "{{controller_host2}}"
+        controller_oauthtoken: "{{controller_token2}}"
+        validate_certs: False
+
+    - name: Export Controller Execution Environments
+      awx.awx.export:
+        execution_environments: ['all']
+        controller_host: "{{controller_host1}}"
+        controller_oauthtoken: "{{controller_token1}}"
+        validate_certs: False
+      register: controller_execution_environments
+
+    - name: Import Controller Execution Environments
+      awx.awx.import:
+        assets: "{{ controller_execution_environments.assets }}"
+        controller_host: "{{controller_host2}}"
+        controller_oauthtoken: "{{controller_token2}}"
+        validate_certs: False
+
     - name: Export Controller Organizations
       awx.awx.export:
         organizations: ['all']
@@ -61,36 +91,6 @@
     - name: Import Controller Credential Types
       awx.awx.import:
         assets: "{{ controller_credential_types.assets }}"
-        controller_host: "{{controller_host2}}"
-        controller_oauthtoken: "{{controller_token2}}"
-        validate_certs: False
-
-    - name: Export Controller Notification Templates
-      awx.awx.export:
-        notification_templates: ['all']
-        controller_host: "{{controller_host1}}"
-        controller_oauthtoken: "{{controller_token1}}"
-        validate_certs: False
-      register: controller_notification_templates
-   
-    - name: Import Controller Notification Templates
-      awx.awx.import:
-        assets: "{{ controller_notification_templates.assets }}"
-        controller_host: "{{controller_host2}}"
-        controller_oauthtoken: "{{controller_token2}}"
-        validate_certs: False
-
-    - name: Export Controller Execution Environments
-      awx.awx.export:
-        execution_environments: ['all']
-        controller_host: "{{controller_host1}}"
-        controller_oauthtoken: "{{controller_token1}}"
-        validate_certs: False
-      register: controller_execution_environments
-
-    - name: Import Controller Execution Environments
-      awx.awx.import:
-        assets: "{{ controller_execution_environments.assets }}"
         controller_host: "{{controller_host2}}"
         controller_oauthtoken: "{{controller_token2}}"
         validate_certs: False
