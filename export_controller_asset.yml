@@ -19,4 +19,4 @@
     - name: Export assets to a file
       copy:
         content: "{{ export_results | to_nice_yaml( width=50, explicit_start=True, explicit_end=True) }}"
-        dest: controller_assets.yaml
+        dest: ~/controller_assets.yaml
