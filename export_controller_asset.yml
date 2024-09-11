@@ -17,6 +17,7 @@
         var: export_results
 
     - name: Export assets to a file
+      delegate_to: "{{controller_host1}}"
       copy:
         content: "{{ export_results | to_nice_yaml( width=50, explicit_start=True, explicit_end=True) }}"
-        dest: ~/controller_assets.yaml
+        dest: ~controller_assets.yaml
