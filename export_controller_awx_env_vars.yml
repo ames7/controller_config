@@ -3,20 +3,21 @@
   hosts: localhost
   connection: local 
   gather_facts: False
+  environment: 
+    CONTROLLER_OPTIONAL_API_URLPATTERN_PREFIX: '/api/controller/'
 
   tasks:
     - name: Export all assets
-      ansible.controller.export:
-        inventory: ['all']
+      awx.awx.export:
+        all: True
         controller_host: "{{controller_host1}}"
-        controller_username: "{{controller_username1}}"
-        controller_password: "{{controller_password1}}"
+        controller_oauthtoken: "{{controller_token1}}"
         validate_certs: False
-      register: controller_inventory
+      register: controller_config
 
-    - name: Import Controller Projects
-      ansible.controller.import:
-        assets: "{{ controller_inventory.assets }}"
+    - name: Import Controller Assets
+      awx.awx.import:
+        assets: "{{ controller_config.assets }}"
         controller_host: "{{controller_host2}}"
         controller_oauthtoken: "{{controller_token2}}"
         validate_certs: False
