@@ -6,7 +6,7 @@
 
   tasks:
     - name: Export Controller Notification Templates
-      awx.awx.export:
+      ansible.controller.export:
         notification_templates: ['all']
         controller_host: "{{controller_host1}}"
         controller_oauthtoken: "{{controller_token1}}"
@@ -15,7 +15,7 @@
       tags: Notification Templates
    
     - name: Import Controller Notification Templates
-      awx.awx.import:
+      ansible.controller.import:
         assets: "{{ controller_notification_templates.assets }}"
         controller_host: "{{controller_host2}}"
         controller_oauthtoken: "{{controller_token2}}"
@@ -23,7 +23,7 @@
       tags: Notification Templates
 
     - name: Export Controller Execution Environments
-      awx.awx.export:
+      ansible.controller.export:
         execution_environments: ['all']
         controller_host: "{{controller_host1}}"
         controller_oauthtoken: "{{controller_token1}}"
@@ -32,7 +32,7 @@
       tags: Execution Environments
 
     - name: Import Controller Execution Environments
-      awx.awx.import:
+      ansible.controller.import:
         assets: "{{ controller_execution_environments.assets }}"
         controller_host: "{{controller_host2}}"
         controller_oauthtoken: "{{controller_token2}}"
@@ -40,7 +40,7 @@
       tags: Execution Environments
 
     # - name: Export Controller Organizations
-    #   awx.awx.export:
+    #   ansible.controller.export:
     #     organizations: ['all']
     #     controller_host: "{{controller_host1}}"
     #     controller_oauthtoken: "{{controller_token1}}"
@@ -49,7 +49,7 @@
     #   tags: Organizations
 
     # - name: Import Controller Organizations
-    #   awx.awx.import:
+    #   ansible.controller.import:
     #     assets: "{{ controller_organizations.assets }}"
     #     controller_host: "{{controller_host2}}"
     #     controller_oauthtoken: "{{controller_token2}}"
@@ -57,7 +57,7 @@
     #   tags: Organizations
 
     # - name: Export Controller Teams
-    #   awx.awx.export:
+    #   ansible.controller.export:
     #     teams: ['all']
     #     controller_host: "{{controller_host1}}"
     #     controller_oauthtoken: "{{controller_token1}}"
@@ -66,7 +66,7 @@
     #   tags: Teams
    
     # - name: Import Controller Teams
-    #   awx.awx.import:
+    #   ansible.controller.import:
     #     assets: "{{ controller_teams.assets }}"
     #     controller_host: "{{controller_host2}}"
     #     controller_oauthtoken: "{{controller_token2}}"
@@ -74,7 +74,7 @@
     #   tags: Teams
 
     # - name: Export Controller Users
-    #   awx.awx.export:
+    #   ansible.controller.export:
     #     users: ['all']
     #     controller_host: "{{controller_host1}}"
     #     controller_oauthtoken: "{{controller_token1}}"
@@ -83,7 +83,7 @@
     #   tags: Users
    
     # - name: Import Controller Users
-    #   awx.awx.import:
+    #   ansible.controller.import:
     #     assets: "{{ controller_users.assets }}"
     #     controller_host: "{{controller_host2}}"
     #     controller_oauthtoken: "{{controller_token2}}"
@@ -91,7 +91,7 @@
     #   tags: Users
 
     - name: Export Controller Credential Types
-      awx.awx.export:
+      ansible.controller.export:
         credential_types: ['all']
         controller_host: "{{controller_host1}}"
         controller_oauthtoken: "{{controller_token1}}"
@@ -100,7 +100,7 @@
       tags: Credential Types
    
     - name: Import Controller Credential Types
-      awx.awx.import:
+      ansible.controller.import:
         assets: "{{ controller_credential_types.assets }}"
         controller_host: "{{controller_host2}}"
         controller_oauthtoken: "{{controller_token2}}"
@@ -108,7 +108,7 @@
       tags: Credential Types
 
     - name: Export Controller Credentials
-      awx.awx.export:
+      ansible.controller.export:
         credentials: ['all']
         controller_host: "{{controller_host1}}"
         controller_oauthtoken: "{{controller_token1}}"
@@ -117,7 +117,7 @@
       tags: Credentials
 
     - name: Import Controller Credentials
-      awx.awx.import:
+      ansible.controller.import:
         assets: "{{ controller_credentials.assets }}"
         controller_host: "{{controller_host2}}"
         controller_oauthtoken: "{{controller_token2}}"
@@ -125,7 +125,7 @@
       tags: Credentials
 
     - name: Export Controller Projects
-      awx.awx.export:
+      ansible.controller.export:
         projects: ['all']
         controller_host: "{{controller_host1}}"
         controller_oauthtoken: "{{controller_token1}}"
@@ -134,7 +134,7 @@
       tags: Projects
 
     - name: Import Controller Projects
-      awx.awx.import:
+      ansible.controller.import:
         assets: "{{ controller_projects.assets }}"
         controller_host: "{{controller_host2}}"
         controller_oauthtoken: "{{controller_token2}}"
@@ -142,7 +142,7 @@
       tags: Projects
 
     - name: Export Controller Inventory
-      awx.awx.export:
+      ansible.controller.export:
         inventory: ['all']
         controller_host: "{{controller_host1}}"
         controller_oauthtoken: "{{controller_token1}}"
@@ -151,7 +151,7 @@
       tags: Inventory
 
     - name: Import Controller Inventory
-      awx.awx.import:
+      ansible.controller.import:
         assets: "{{ controller_inventory.assets }}"
         controller_host: "{{controller_host2}}"
         controller_oauthtoken: "{{controller_token2}}"
@@ -159,7 +159,7 @@
       tags: Inventory
 
     - name: Export Controller Inventory Sources
-      awx.awx.export:
+      ansible.controller.export:
         inventory_sources: ['all']
         controller_host: "{{controller_host1}}"
         controller_oauthtoken: "{{controller_token1}}"
@@ -168,7 +168,7 @@
       tags: Inventory Sources
 
     - name: Import Controller Inventory Sources
-      awx.awx.import:
+      ansible.controller.import:
         assets: "{{ controller_inventory_sources.assets }}"
         controller_host: "{{controller_host2}}"
         controller_oauthtoken: "{{controller_token2}}"
@@ -176,7 +176,7 @@
       tags: Inventory Sources
 
     - name: Export Controller Job Templates
-      awx.awx.export:
+      ansible.controller.export:
         job_templates: ['all']
         controller_host: "{{controller_host1}}"
         controller_oauthtoken: "{{controller_token1}}"
@@ -185,7 +185,7 @@
       tags: Job Templates
 
     - name: Import Controller Job Templates
-      awx.awx.import:
+      ansible.controller.import:
         assets: "{{ controller_job_templates.assets }}"
         controller_host: "{{controller_host2}}"
         controller_oauthtoken: "{{controller_token2}}"
@@ -193,7 +193,7 @@
       tags: Job Templates
     
     - name: Export Controller Workflow Job Templates
-      awx.awx.export:
+      ansible.controller.export:
         workflow_job_templates: ['all']
         controller_host: "{{controller_host1}}"
         controller_oauthtoken: "{{controller_token1}}"
@@ -202,7 +202,7 @@
       tags: Workflow Job Templates
    
     - name: Import Controller Workflow Job Templates
-      awx.awx.import:
+      ansible.controller.import:
         assets: "{{ controller_workflow_job_templates.assets }}"
         controller_host: "{{controller_host2}}"
         controller_oauthtoken: "{{controller_token2}}"
