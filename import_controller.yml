@@ -5,22 +5,22 @@
   gather_facts: false
 
   tasks:
-    - name: Export Controller Notification Templates
-      ansible.controller.export:
-        notification_templates: ['all']
-        controller_host: "{{controller_host1}}"
-        controller_oauthtoken: "{{controller_token1}}"
-        validate_certs: False
-      register: controller_notification_templates
-      tags: Notification Templates
+    # - name: Export Controller Notification Templates
+    #   ansible.controller.export:
+    #     notification_templates: ['all']
+    #     controller_host: "{{controller_host1}}"
+    #     controller_oauthtoken: "{{controller_token1}}"
+    #     validate_certs: False
+    #   register: controller_notification_templates
+    #   tags: Notification Templates
    
-    - name: Import Controller Notification Templates
-      ansible.controller.import:
-        assets: "{{ controller_notification_templates.assets }}"
-        controller_host: "{{controller_host2}}"
-        controller_oauthtoken: "{{controller_token2}}"
-        validate_certs: False
-      tags: Notification Templates
+    # - name: Import Controller Notification Templates
+    #   ansible.controller.import:
+    #     assets: "{{ controller_notification_templates.assets }}"
+    #     controller_host: "{{controller_host2}}"
+    #     controller_oauthtoken: "{{controller_token2}}"
+    #     validate_certs: False
+    #   tags: Notification Templates
 
     - name: Export Controller Execution Environments
       ansible.controller.export:
